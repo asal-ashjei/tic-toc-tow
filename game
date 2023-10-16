@@ -1,0 +1,43 @@
+# Tic Tac Tow Game
+#
+L1 = ["|", " ", "|", " ", "|"," ", "|"]
+L2 = ["|", " ", "|", " ", "|"," ", "|"]
+L3 = ["|", " ", "|", " ", "|"," ", "|"]
+L = [L1, L2, L3]
+#---Output-------
+R = ""
+for item in L:
+    for i in item:
+        R = R + i
+    print(R)
+    R = ""
+#----------------
+for counter in range(9): # 0, 1, 2, 3, 4,...,8
+    error = True
+    N = ["11", "12", "13", "21", "22", "23", "31", "32", "33"]
+    while error:
+        n = input("Enter position:")
+        if n in N:
+            error = False
+
+    if counter % 2 == 0:
+        user = "A"
+    else:
+        user = "B"
+    d = int(n) // 10    # 12 // 10 = 1
+    r = int(n) % 10     # 12 % 10 = 2
+    L[d-1][1+(r-1)*2] = user
+    # r = 1  L1[1]
+    # r = 2  L1[3]
+    # r = 3  L1[5]
+    # a0 + (n-1)d
+    # a0 + (n-1)(2)
+    # 1 + (r - 1)(2)
+    #---Output-------
+    R = ""
+    for item in L:
+        for i in item:
+            R = R + i
+        print(R)
+        R = ""
+    #----------------
